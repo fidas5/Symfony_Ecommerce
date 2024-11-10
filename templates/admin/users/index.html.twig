@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'adminUserIndex.title'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'adminUserIndex.title'|trans}}</h1>
+    <hr class="hr" />
+    <div class="d-flex gap-3 flex-column">
+        {% include "_components/adminnav.html.twig" %}
+        <div class="bg-body-tertiary p-1 rounded w-100">
+            <table class="table m-0 table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>{{'adminUserIndex.lastname'|trans}}</th>
+                        <th>{{'adminUserIndex.firstname'|trans}}</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% for role in user.roles %}
+                                {% if role == "ROLE_SUPER_ADMIN" %}
+                                    {% set name = "SuperAdmin" %}
+                                    {% set color = "danger" %}
+                                {% elseif role == "ROLE_ADMIN" %}
+                                    {% set name = "Admin" %}
+                                    {% set color = "warning" %}
+                                {% elseif role == "ROLE_MEMBER" %}
+                                    {% set name = "Member" %}
+                                    {% set color = "info" %}
+                                {% else %}
+                                    {% set name = "Member" %}
+                                    {% set color = "success" %}
+                                {% endif %}
+                                <span class="badge bg-{{color}}">{{ name }}</span>
+                            {% endfor %}
+                        </td>
+                        <td><time datetime="{{ user.createdAt|date('Y-m-d H:i:s') }}">{{ user.createdAt|date('d/m/Y H:i:s') }}</time></td>
+                        <td>
+                            <a class="btn btn-outline-danger" href="{{ path('admin_users_delete', {id: user.id}) }}" onclick="return confirm('Are you sure?')">{{'adminUserIndex.delete'|trans}}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

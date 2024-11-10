@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'adminProductsAdd.title'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'adminProductsAdd.add'|trans}}</h1>
+    <hr class="hr" />
+    {% include 'admin/products/_form.html.twig' with {'button_label': 'Add'} %}
+{% endblock %}

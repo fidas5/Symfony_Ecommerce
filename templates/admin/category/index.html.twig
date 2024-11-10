@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{'adminCategoryIndex.title'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'adminCategoryIndex.title'|trans}}</h1>
+    <hr class="hr" />
+    <div class="d-flex gap-3 flex-column">
+        {% include "_components/adminnav.html.twig" %}
+        <div class="bg-body-tertiary p-1 rounded w-100">
+            <table class="table m-0 table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>{{'adminCategoryIndex.name'|trans}}</th>
+                        <th>Parent</th>
+                        <th>Slug</th>
+                        <th>{{'adminCategoryIndex.order'|trans}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for category in category %}
+                    <tr>
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.name }}</td>
+                        <td>
+                            {% if category.parent is not null %}
+                                {{ category.parent.name }}
+                            {% endif %}
+                        </td>
+                        <td>{{ category.slug }}</td>
+                        <td>{{ category.CategoryOrder }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

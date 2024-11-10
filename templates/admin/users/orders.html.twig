@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'adminOrders.title'|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{ 'adminOrders.title'|trans }}</h1>
+    <hr class="hr" />
+    <div class="d-flex gap-3 flex-column">
+        {% include "_components/adminnav.html.twig" %}
+        <div class="bg-body-tertiary p-1 rounded w-100">
+            <table class="table m-0 table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>{{'adminOrders.orderDate'|trans}}</th>
+                        <th>{{'adminOrders.buyer'|trans}}</th>
+                        <th>{{'adminOrders.product'|trans}}</th>
+                        <th>{{'adminOrders.quantity'|trans}}</th>
+                        <th>Total</th>
+                        <th>Reference</th>
+                        <th>CRUD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        {% for detail in order.orderDetails %}
+                            <tr>
+                                <td>{{ order.createdAt|date('d/m/Y H:i') }}</td>
+                                <td>{{ order.user.email }}</td>
+                                <td>{{ detail.product.name }}</td>
+                                <td>{{ detail.quantity }}</td>
+                                <td>₹{{ detail.price * detail.quantity }}</td>
+                                <td>{{ order.orderTag }}</td>
+                                <td>
+                                    <a href="{{ path('admin_orders_edit', {id: order.id}) }}" class="btn btn-sm btn-primary">{{ 'Edit'|trans }}</a>
+                                    <a href="{{ path('admin_orders_delete', {id: order.id}) }}" class="btn btn-sm btn-danger" onclick="return confirm('{{ 'Are you sure?'|trans }}');">{{ 'Delete'|trans }}</a>
+                                    <a href="{{ path('admin_orders_view', {id: order.id}) }}" class="btn btn-sm btn-info">{{ 'View'|trans }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

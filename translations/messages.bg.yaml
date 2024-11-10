@@ -1,0 +1,160 @@
+# messages.en.yaml
+app_index:
+  home: Начална страница
+  title: Всички категории
+  description: На тази страница ще намерите всички категории продукти, които продаваме в нашия магазин.
+  see: Вижте продуктите
+
+base:
+  welcome: Добре дошли!
+
+login:
+  title: Вход
+  description: Този формуляр е за влизане в профила ви.
+  logMessage: В момента сте влезли като
+  logout: Изход
+  password: Парола
+  remember: Запомни ме
+  signIn: Вход
+  or: или
+  signUp: Регистрация
+
+register:
+  register: Регистрация
+  description: Регистрирайте се, за да получите достъп до пълните функционалности на сайта.
+  signUp: Регистрация
+  or: или
+  signIn: Вход
+
+profile:
+  pageTitle: Редактиране на профила
+  title: Редактиране на профила
+  update: Обновяване
+
+profileIndex:
+  title: Профил | Информация за потребителя
+  update: Обновяване на информацията за потребителя
+  identity: Идентичност
+  lastname: Фамилия
+  firstname: Име
+  address: Адрес
+  city: Град
+  zipcode: Пощенски код
+  orders: Поръчки
+  product: Продукт
+  quantity: Количество
+  price: Цена
+  billing: Адрес за фактуриране
+
+products:
+  details: Страница с детайли за
+  previous: Предишен
+  next: Следващ
+  category: Категория
+  price: Цена
+  stock: наличен
+  addCart: Добави в количката
+  outOfStock: Изчерпан
+  mustLogin: Трябва да сте влезли в профила си, за да добавите продукт в количката.
+
+productsIndex:
+  title: Страница с продукти
+  all: Всички продукти
+  description: На тази страница ще намерите всички продукти, които продаваме в нашия магазин.
+  moreDetails: Повече детайли
+
+category:
+  title: Категория
+  relateTo: Всички продукти, свързани с категорията
+  moreDetail: Повече детайли
+  nothingFound: Няма намерени продукти в тази категория.
+
+cart:
+  title: Количка
+  product: Продукт
+  unitPrice: Единична цена
+  quantity: Количество
+  delete: Изтрий
+  cartEmpty: Вашата количка е празна
+  emptyTheCart: Изпразни количката
+  instant: Моментална покупка
+
+error:
+  msg: Грешка
+  oops: Оп-а! Нещо се обърка.
+  serverReturned: Сървърът върна
+  statutCode: код на статус
+
+forbidden:
+  msg: 403 - Забранено
+  srry: Съжаляваме, нямате право да достъпите тази страница.
+
+notFound:
+  msg: 404 - Не е намерено
+  srry: Съжаляваме, страницата, която търсите, не е намерена.
+
+adminIndex:
+  title: Администрация | Панел
+
+adminUserIndex:
+  title: Администрация | Потребители
+  lastname: Фамилия
+  firstname: Име
+  delete: Изтрий
+
+adminProductsForm:
+  delete: Изтрий
+  send: Изпрати формуляра
+
+adminCategoryForm:
+  send: Изпрати формуляра
+
+adminProductsAdd:
+  title: Администрация | Добави продукт
+  add: Добави продукт
+
+adminProductsEdit:
+  title: Администрация | Редактирай продукт
+  edit: Редактирай продукт
+
+adminProductsIndex:
+  title: Администрация | Списък с продукти
+  titleList: Администрация | Списък с продукти
+  name: Име
+  price: Цена
+  category: Категория
+  update: Обнови
+  delete: Изтрий
+
+adminCategoryIndex:
+  title: Администрация | Списък с категории
+  name: Име
+  order: Поръчка
+
+adminCategory:
+  addCategory: Добави категория
+
+adminOrders:
+  title: Администрация | Поръчки
+  ordersPanel: Панел с поръчки
+  orderDate: Дата на поръчката
+  buyer: Купувач
+  product: Продукт
+  quantity: Количество
+
+componentsAdmin:
+  categoryTitle: Списък с категории
+  categoryPanel: Панел с категории
+  productTitle: Списък с продукти
+  productPanel: Панел с продукти
+  addProduct: Добави продукт
+  userTitle: Списък с потребители
+  userPanel: Панел с потребители
+
+navbar:
+  allProducts: Всички продукти
+  allCategories: Всички категории
+  cart: Количка
+  adminPanel: Панел на администратора
+  logout: Изход
+  signIn: Вход

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'adminProductsEdit.title'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'adminProductsEdit.edit'|trans}}</h1>
+    <hr class="hr" />
+    {% include 'admin/products/_form.html.twig' with {'button_label': 'Edit'} %}
+    <script src="{{ asset('/js/photos.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'profile.pageTitle'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'profile.title'|trans}}</h1>
+    <div class="text-white">
+    {{ form_errors(updateUserForm) }}
+
+    {{ form_start(updateUserForm) }}
+        {{ form_row(updateUserForm.lastname) }}
+        {{ form_row(updateUserForm.firstname) }}
+        <hr class="hr" />
+        {{ form_row(updateUserForm.address) }}
+        {{ form_row(updateUserForm.zipcode) }}
+        {{ form_row(updateUserForm.city) }}
+        <hr class="hr" />
+        {{ form_row(updateUserForm.email) }}
+        {{ form_row(updateUserForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        <hr class="hr" />
+
+        <div class="d-flex justify-content-center w-100">
+            <button type="submit" class="btn btn-lg btn-primary w-50" onclick="return confirm('Are you sure, you want to update your profile?')">{{'profile.update'|trans}}</button>
+        </div>
+    {{ form_end(updateUserForm) }}
+    </div>
+{% endblock %}

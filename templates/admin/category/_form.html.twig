@@ -1,0 +1,15 @@
+{{ form_start(categoryForm) }}
+    {{ form_errors(categoryForm) }}
+
+    <div class="d-flex gap-5">
+        <div class="blog-main w-50 text-white">
+            {{ form_row(categoryForm.name) }}
+            {{ form_row(categoryForm.categoryOrder) }}
+        </div>
+        <aside class="d-flex flex-column col-5 blog-sidebar text-white">
+            {{ form_row(categoryForm.parent) }}
+        </aside>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-50">{{'adminCategoryForm.send'|trans}}</button></div>
+{{ form_end(categoryForm) }}

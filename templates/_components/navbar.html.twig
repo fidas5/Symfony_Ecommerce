@@ -1,0 +1,60 @@
+<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand isTitle" href="{{ path('app') }}">Galactic Black Market</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ path('products_index') }}">{{'navbar.allProducts'|trans}}</a>
+            </li>
+            <div class="vr m-lg-1"></div>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ path('app') }}">{{'navbar.allCategories'|trans}}</a>
+            </li>
+            <div class="vr m-lg-1"></div>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ path('cart_index') }}">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    {{'navbar.cart'|trans}}
+                </a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            {% if app.user %}
+                <div class="d-flex gap-3 align-items-center">
+                    {% set highestRole = null %}
+                    {% set highestRoleColor = null %}
+                    {% for role in app.user.roles %}
+                        {% if role == 'ROLE_SUPER_ADMIN' %}
+                            {% set highestRole = 'Super Admin' %}
+                            {% set highestRoleColor = 'danger' %}
+                        {% elseif role == 'ROLE_ADMIN' and highestRole != 'Super Admin' %}
+                            {% set highestRole = 'Admin' %}
+                            {% set highestRoleColor = 'warning' %}
+                        {% elseif role == 'ROLE_USER' and highestRole not in ['Super Admin', 'Admin'] %}
+                            {% set highestRole = 'Member' %}
+                            {% set highestRoleColor = 'success' %}
+                        {% endif %}
+                    {% endfor %}
+                    <p class="m-0 d-flex align-items-center gap-2">
+                        {% if highestRole %}
+                            <span class="badge bg-{{ highestRoleColor }}">{{ highestRole }}</span>
+                        {% endif %}
+                        <a class="nav-link" aria-current="page" href="{{ path('profile_index') }}">
+                            <i class="fa-regular fa-circle-user"></i> {{ app.user.userIdentifier}}
+                        </a>
+                    </p>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('admin_index') }}" class="btn btn-primary text-white">{{'navbar.adminPanel'|trans}}</a>
+                    {% endif %}
+                    <a href="{{ path('app_logout') }}" class="btn btn-primary text-white" onclick="return confirm('Are you sure, you want to logout?')">{{'navbar.logout'|trans}}</a>
+                </div>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="btn btn-primary text-white">{{'navbar.signIn'|trans}}</a>
+            {% endif %}
+        </span>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'cart.title'|trans}}{% endblock %}
+
+{% block body %}
+    <div class="p-1 rounded bg-white">
+        <table class="table m-0 table-striped">
+            <thead>
+                <tr>
+                    <th>{{'cart.product'|trans}}</th>
+                    <th>{{'cart.unitPrice'|trans}}</th>
+                    <th>{{'cart.quantity'|trans}}</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in  data %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>₹{{ item.product.price }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>₹{{ item.quantity * item.product.price }}</td>
+                        <td>
+                            <a href="{{ path('cart_add', {id: item.product.id}) }}" class="btn btn-success btn-sm">+</a>
+                            <a href="{{ path('cart_remove', {id: item.product.id}) }}" class="btn btn-warning btn-sm">-</a>
+                            <a href="{{ path('cart_delete', {id: item.product.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete this item?')">{{'cart.delete'|trans}}</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">{{'cart.cartEmpty'|trans}}</td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+            {% if total != 0 %}
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total</td>
+                            <td>₹{{ total }}</td>
+                        <td>
+                            <a href="{{ path('cart_empty') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to empty your cart?')">{{'cart.emptyTheCart'|trans}}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="{{ path('app_order_add') }}" class="btn btn-primary w-75" onclick="return confirm('Are you sure, you want to place this order?')">{{'cart.instant'|trans}}</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'profileIndex.title'|trans}}{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-white">{{'profileIndex.title'|trans}}</h1>
+        <div><a class="btn btn-primary" href="{{ path('profile_update', {id: user.id}) }}">{{'profileIndex.update'|trans}}</a></div>
+    </div>
+    <hr class="hr" />
+    <div class="d-flex gap-3">
+        <div class="card w-100">
+            <div class="card-header">
+                {{'profileIndex.identity'|trans}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{'profileIndex.lastname'|trans}} : {{ user.lastname }}</li>
+                <li class="list-group-item">{{'profileIndex.firstname'|trans}} : {{ user.firstname }}</li>
+            </ul>
+        </div>
+
+        <div class="card w-100">
+            <div class="card-header">
+                Contact
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email : {{ user.email }}</li>
+            </ul>
+        </div>
+
+        <div class="card w-100">
+            <div class="card-header">
+            {{'profileIndex.billing'|trans}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{'profileIndex.address'|trans}} : {{ user.address }}</li>
+                <li class="list-group-item">{{'profileIndex.city'|trans}} : {{ user.city }}</li>
+                <li class="list-group-item">{{'profileIndex.zipcode'|trans}} : {{ user.zipcode }}</li>
+            </ul>
+        </div>
+    </div>
+    <hr class="hr mt-4" />
+    <h1 class="text-white">{{'profileIndex.orders'|trans}}</h1>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>{{'profileIndex.product'|trans}}</th>
+                    <th>{{'profileIndex.quantity'|trans}}</th>
+                    <th>{{'profileIndex.price'|trans}}</th>
+                    <th>Reference</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in user.orders %}
+                    {% for detail in order.orderDetails %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.createdAt|date('d/m/Y') }}</td>
+                            <td>{{ detail.product.name }}</td>
+                            <td>{{ detail.quantity }}</td>
+                            <td>₹{{ detail.price }}</td>
+                            <td>{{ order.orderTag }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

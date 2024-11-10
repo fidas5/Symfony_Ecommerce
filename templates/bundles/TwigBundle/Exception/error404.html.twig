@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{'notFound.msg'|trans}} {% endblock %}
+
+{% block body %}
+    <div class="d-flex flex-column text-center">
+        <h1 class="text-white" >{{'notFound.msg'|trans}}</h1>
+        <h2 class="text-white" >{{'notFound.srry'|trans}}</h2>
+    </div>
+{% endblock %}

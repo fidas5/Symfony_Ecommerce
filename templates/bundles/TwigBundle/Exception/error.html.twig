@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{'error.msg'|trans}} {% endblock %}
+
+{% block body %}
+    <div class="d-flex flex-column text-center">
+        <h1 class="text-white" >{{'error.oops'|trans}}</h1>
+        <p class="text-white" >{{'error.serverReturned'|trans}} "{{ status_code }}" {{'error.statutCode'|trans}}.</p>
+    </div>
+{% endblock %}
+

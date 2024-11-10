@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'category.title'|trans}} {{ category.name }}{% endblock %}
+
+{% block body %}
+    <div class="col-12 text-white">
+        <h1><b>{{ category.name }}</b></h1>
+        <p>{{'category.relateTo'|trans}} {{ category.name }}</p>
+    </div>
+    <hr class="hr" />
+    {% if category.products|length > 0 %}
+        <div class="d-flex gap-3">
+            {% for product in product.data %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ asset('/uploads/products/cover/300x300-' ~ product.images[0].name ) }}" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description | slice(0, 50) }}{% if product.description | length > 50 %}...{% endif %}</p>
+                        <hr class="hr" />
+                        <div class="d-flex justify-content-between">
+                            <h3>₹{{ product.price }}</h3>
+                            <a href="{{ path('products_details', {"slug": product.slug}) }}" class="btn btn-primary">{{'category.moreDetail'|trans}}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% set path = 'category_list' %}
+        {% set slug = category.slug %}
+        {% set pages = product.pages %}
+        {% set currentPage = product.page %}
+        {% include "_components/pagination.html.twig" %}
+    {% else %}
+        <p class="text-white">{{'category.nothingFound'|trans}}</p>
+    {% endif %}
+{% endblock %}
+

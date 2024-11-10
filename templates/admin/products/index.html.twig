@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'adminProductsIndex.title'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'adminProductsIndex.titleList'|trans}}</h1>
+    <hr class="hr" />
+    <div class="d-flex gap-3 flex-column">
+        {% include "_components/adminnav.html.twig" %}
+        <div class="bg-body-tertiary p-1 rounded w-100">
+            <table class="table m-0 table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Photo</th>
+                        <th>{{'adminProductsIndex.name'|trans}}</th>
+                        <th>{{'adminProductsIndex.price'|trans}}</th>
+                        <th>Stock</th>
+                        <th>{{'adminProductsIndex.category'|trans}}</th>
+                        <th>Actions</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for product in product %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>
+                            <img class="card-img-top w-25" src="{{ asset('/uploads/products/cover/300x300-' ~ product.images[0].name ) }}" alt="{{ product.name }}">
+                        </td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.stock }}</td>
+                        <td>{{ product.category.name }}</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="{{ path('admin_products_update', {id: product.id}) }}">{{'adminProductsIndex.update'|trans}}</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-danger" href="{{ path('admin_products_delete', {id: product.id}) }}" onclick="return confirm('Are you sure?')">{{'adminProductsIndex.delete'|trans}}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

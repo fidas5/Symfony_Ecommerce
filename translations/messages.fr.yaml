@@ -1,0 +1,160 @@
+# messages.fr.yaml
+app_index:
+  home: Page d'accueil 
+  title: Toutes les catégories
+  description: Sur cette page vous trouverez toutes les catégories de produits que nous vendons dans notre magasin.
+  see: Voir les produits
+
+base:
+  welcome: Bienvenue !
+
+login:
+  title: Connexion
+  description: Ce formulaire est pour vous connecter à votre compte.
+  logMessage: Vous êtes maintenant connecté en tant que
+  logout: Déconnexion
+  password: Mot de passe
+  remember: Se souvenir de moi
+  signIn: Connexion
+  or: ou
+  signUp: S'inscrire
+
+register:
+  register: S'inscrire
+  description: Inscrivez-vous pour accéder à toutes les fonctionnalités du site.
+  signUp: S'inscrire
+  or: ou
+  signIn: Connexion
+
+profile:
+  pageTitle: Modifier le profil
+  title: Modifier le profil
+  update: Mettre à jour
+
+profileIndex:
+  title: Profil | Informations utilisateur
+  update: Mettre à jour les informations utilisateur
+  identity: Identité
+  lastname: Nom
+  firstname: Prénom
+  address: Adresse
+  city: Ville
+  zipcode: Code postal
+  orders: Commandes
+  product: Produit
+  quantity: Quantité
+  price: Prix
+  billing: Adresse de facturation
+
+products:
+  details: Page de détail de
+  previous: Précédent
+  next: Suivant
+  category: Catégorie
+  price: Prix
+  stock: en stock
+  addCart: Ajouter au panier
+  outOfStock: En rupture de stock
+  mustLogin: Vous devez être connecté pour ajouter un produit au panier.
+
+productsIndex:
+  title: Page de produit
+  all: Tous les produits
+  description: Sur cette page vous trouverez tous les produits que nous vendons dans notre magasin.
+  moreDetails: Plus de détails
+
+category:
+  title: Détails de la catégorie
+  relateTo: Tous les produits liés à la catégorie
+  moreDetail: Plus de détails
+  nothingFound: Aucun produit trouvé dans cette catégorie.
+
+cart:
+  title: Panier
+  product: Produit
+  unitPrice: Prix unitaire
+  quantity: Quantité
+  delete: Supprimer
+  cartEmpty: Votre panier est vide
+  emptyTheCart: Vider le panier
+  instant: Achat instantané
+
+error:
+  msg: Erreur
+  oops: Oups ! Une erreur s'est produite.
+  serverReturned: Le serveur a renvoyé un
+  statutCode: code de statut
+
+forbidden:
+  msg: 403 - Interdit
+  srry: Désolé, vous n'êtes pas autorisé à accéder à cette page.
+
+notFound:
+  msg: 404 - Page non trouvée
+  srry: Désolé, la page que vous recherchez n'existe pas.
+
+adminIndex:
+  title: Dashboard d'administration
+
+adminUserIndex:
+  title: Administration | Utilisateurs
+  lastname: Nom
+  firstname: Prénom
+  delete: Supprimer
+
+adminProductsForm:
+  delete: Supprimer
+  send: Envoyer le formulaire
+
+adminCategoryForm:
+  send: Envoyer le formulaire
+
+adminProductsAdd:
+  title: Administration | Ajouter un produit
+  add: Ajouter un produit
+
+adminProductsEdit:
+  title: Administration | Modifier un produit
+  edit: Modifier un produit
+
+adminProductsIndex:
+  title: Administration | Produits
+  titleList: Administration | Liste des produits
+  name: Nom
+  price: Prix
+  category: Catégorie
+  update: Mettre à jour
+  delete: Supprimer
+
+adminCategoryIndex:
+  title: Administration | Liste des catégories
+  name: Nom
+  order: Commande
+
+adminCategory:
+  addCategory: Ajouter une catégorie
+
+adminOrders:
+  title: Administration | Commandes
+  ordersPanel: Panneau des commandes
+  orderDate: Date de la commande
+  buyer: Acheteur
+  product: Produit
+  quantity: Quantité
+
+componentsAdmin:
+  categoryTitle: Liste des catégories
+  categoryPanel: Panneau des catégories
+  productTitle: Liste des produits
+  productPanel: Panneau des produits
+  addProduct: Ajouter un produit
+  userTitle: Liste des utilisateurs
+  userPanel: Panneau des utilisateurs
+
+navbar:
+  allProducts: Tous les produits
+  allCategories: Toutes les catégories
+  cart: Panier
+  adminPanel: Panneau d'administration
+  logout: Déconnexion
+  signIn: Connexion

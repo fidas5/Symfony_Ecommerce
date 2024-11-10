@@ -1,0 +1,28 @@
+<div class="d-flex gap-3">
+    <div class="card w-100" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><b>{{'componentsAdmin.categoryTitle'|trans}}</b></h5>
+            <hr class="hr" />
+            <a class="btn btn-primary w-100" href="{{ path('admin_category_index') }}">{{'componentsAdmin.categoryPanel'|trans}}</a>
+            <a class="btn btn-outline-secondary mt-2 w-100" href="{{ path('admin_category_new') }}">{{'adminCategory.addCategory'|trans}}</a>
+        </div>
+    </div>
+
+    <div class="card w-100" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><b>{{'componentsAdmin.productTitle'|trans}}</b></h5>
+            <hr class="hr" />
+            <a class="btn btn-primary w-100" href="{{ path('admin_products_index') }}">{{'componentsAdmin.productPanel'|trans}}</a>
+            <a class="btn btn-outline-secondary mt-2 w-100" href="{{ path('admin_products_add') }}">{{'componentsAdmin.addProduct'|trans}}</a>
+        </div>
+    </div>
+
+    <div class="card w-100" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><b>{{'componentsAdmin.userTitle'|trans}}</b></h5>
+            <hr class="hr" />
+            <a class="btn btn-primary w-100" href="{{ path('admin_users_index') }}">{{'componentsAdmin.userPanel'|trans}}</a>
+            <a class="btn btn-primary mt-2 w-100" href="{{ path('admin_users_orders') }}">{{'adminOrders.ordersPanel'|trans}}</a>
+        </div>
+    </div>
+</div>

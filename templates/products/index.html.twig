@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'productsIndex.title'|trans}}{% endblock %}
+
+{% block body %}
+    <div class="col-12 text-white">
+        <h1><b>{{'productsIndex.all'|trans}}</b></h1>
+        <p>{{'productsIndex.description'|trans}}</p>
+    </div>
+    <hr class="hr" />
+    <div class="d-flex gap-3 flex-wrap">
+        {% for product in products %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ asset('/uploads/products/cover/300x300-' ~ product.images[0].name ) }}" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description | slice(0, 50) }}{% if product.description | length > 50 %}...{% endif %}</p>
+                    <hr class="hr" />
+                    <div class="d-flex justify-content-between">
+                        <h3>₹{{ product.price }}</h3>
+                        <a href="{{ path('products_details', {"slug": product.slug}) }}" class="btn btn-primary">{{'productsIndex.moreDetails'|trans}}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

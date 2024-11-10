@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'products.details'|trans}} {{ product.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white"><b>{{ product.name }}</b></h1>
+    <hr class="hr" />
+    <div class="d-flex gap-5">
+        <div class="blog-main w-50">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    {% for i in 1..product.images|length %}
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ i - 1 }}" {{ (loop.first) ? 'class="active" aria-current="true"' : '' }} aria-label="Slide {{ i }}"></button>
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                    {% for img in product.images %}
+                        <div class="carousel-item {{ (loop.first) ? 'active' : '' }}">
+                            <img class="d-block w-100" src="{{ asset('/uploads/products/cover/300x300-' ~ img.name ) }}" alt="Slide {{ loop.index }}">
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">{{'products.previous'|trans}}</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">{{'products.next'|trans}}</span>
+                </button>
+            </div>
+        </div>
+
+        <aside class="col-md-4 blog-sidebar text-white">
+            <h5>Description:</h5>
+            <p>{{ product.description }}</p>
+            <hr class="hr" />
+            <h5>{{'products.category'|trans}} :</h5>
+            <p>{{ product.category.name }}</p>
+            <hr class="hr" />
+            <div class="d-flex gap-2 align-items-center">
+                <p class="m-0">{{'products.price'|trans}}: <h2 class="m-0">₹{{ product.price }}</h2></p>
+                {% if product.stock > 500 %}
+                    {% set color = "primary" %}
+                {% elseif product.stock > 100 %}
+                    {% set color = "warning" %}
+                {% else %}
+                    {% set color = "danger" %}
+                {% endif %}
+                <p class="badge bg-{{color}} m-0">{{ product.stock }} {{'products.stock'|trans}}</p>
+            </div>
+            <hr class="hr" />
+            {% if app.user %}
+                {% if product.stock > 0 %}
+                <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-primary w-100">{{'products.addCart'|trans}}</a>
+                {% else %}
+                    <p class="btn btn-danger w-100 disabled" disabled>{{'products.outOfStock'|trans}}</p>
+                {% endif %}
+            {% else %}
+                <a href="{{ path('app_login') }}" class="btn btn-primary w-100">{{'products.mustLogin'|trans}}</a>
+            {% endif %}
+        </aside>
+
+    </div>
+{% endblock %}

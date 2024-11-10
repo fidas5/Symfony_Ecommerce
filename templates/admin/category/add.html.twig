@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'adminCategory.addCategory'|trans}}{% endblock %}
+
+{% block body %}
+    <h1 class="text-white">{{'adminCategory.addCategory'|trans}}</h1>
+    <hr class="hr" />
+    {% include 'admin/category/_form.html.twig' with {'button_label': 'Add'} %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{{ form_start(productForm) }}
+    {{ form_errors(productForm) }}
+
+    <div class="d-flex gap-5">
+        <div class="blog-main w-50 text-white">
+            {{ form_row(productForm.name) }}
+            {{ form_row(productForm.description) }}
+            {{ form_row(productForm.price) }}
+            {{ form_row(productForm.stock) }}
+            {{ form_row(productForm.category) }}
+        </div>
+        
+        <aside class="d-flex flex-column col-md-4 blog-sidebar text-white">
+            {{ form_row(productForm.photo) }}
+            {% if app.request.attributes.get('_route') == 'admin_products_update' %}
+                <div>
+                    <h2>Photos</h2>
+                    {% for image in product.images %}
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="w-25" src="{{ asset('/uploads/products/cover/300x300-' ~ image.name ) }}" alt="{{ image.name }}">
+                            <a class="btn btn-danger" href="{{ path('admin_products_delete_photo', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">{{'adminProductsForm.delete'|trans}}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </aside>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3"><button type="submit" class="btn btn-primary w-50">{{'adminProductsForm.send'|trans}}</button></div>
+{{ form_end(productForm) }}

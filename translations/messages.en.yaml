@@ -1,0 +1,160 @@
+# messages.en.yaml
+app_index:
+  home: Homepage
+  title: All categories
+  description: On this page you will find all the categories of products that we sell in our store.
+  see: See products
+
+base:
+  welcome: Welcome!
+
+login:
+  title: Sign In
+  description: This form is for signing in to your account.
+  logMessage: You are now logged in as
+  logout: Log out
+  password: Password
+  remember: Remember me
+  signIn: Sign In
+  or: or
+  signUp: Sign Up
+
+register:
+  register: Register
+  description: Register to get access to the full features of the website.
+  signUp: Sign Up
+  or: or
+  signIn: Sign In
+
+profile:
+  pageTitle: Edit Profile
+  title: Edit Profile
+  update: Update
+
+profileIndex:
+  title: Profile | User info
+  update: Update user info
+  identity: Identity
+  lastname: Lastname
+  firstname: Firstname
+  address: Address
+  city: City
+  zipcode: Zipcode
+  orders: Orders
+  product: Product
+  quantity: Quantity
+  price: Price
+  billing: Billing address
+
+products:
+  details: Detail page of
+  previous: Previous
+  next: Next
+  category: Category
+  price: Price
+  stock: in stock
+  addCart: Add to cart
+  outOfStock: Out of stock
+  mustLogin: You must be logged in to add a product to the cart.
+
+productsIndex:
+  title: Product page
+  all: All products
+  description: On this page you will find all the products that we sell in our store.
+  moreDetails: More details
+
+category:
+  title: Detail page of
+  relateTo: All the products related to the category
+  moreDetail: More details
+  nothingFound: No products found in this category.
+
+cart:
+  title: Cart
+  product: Product
+  unitPrice: Unit price
+  quantity: Quantity
+  delete: Delete
+  cartEmpty: Your cart is empty
+  emptyTheCart: Empty the cart
+  instant: Instant purchase
+
+error:
+  msg: Error
+  oops: Oops! Something went wrong.
+  serverReturned: The server returned a
+  statutCode: status code
+
+forbidden:
+  msg: 403 - Forbidden
+  srry: Sorry, you are not allowed to access this page.
+
+notFound:
+  msg: 404 - Not Found
+  srry: Sorry, the page you are looking for is not found.
+
+adminIndex:
+  title: Administration | Dashboard
+
+adminUserIndex:
+  title: Administration | Users
+  lastname: Lastname
+  firstname: Firstname
+  delete: Delete
+
+adminProductsForm:
+  delete: Delete
+  send: Send form
+
+adminCategoryForm:
+  send: Send form
+
+adminProductsAdd:
+  title: Administration | Add a product
+  add: Add a product
+
+adminProductsEdit:
+  title: Administration | Edit a product
+  edit: Edit a product
+
+adminProductsIndex:
+  title: Administration | Products
+  titleList: Administration | List of products
+  name: Name
+  price: Price
+  category: Category
+  update: Update
+  delete: Delete
+
+adminCategoryIndex:
+  title: Administration | Category list
+  name: Name
+  order: Order
+
+adminCategory:
+  addCategory: Add a category
+
+adminOrders:
+  title: Administration | Orders
+  ordersPanel: Orders panel
+  orderDate: Order date
+  buyer: Buyer
+  product: Product
+  quantity: Quantity
+
+componentsAdmin:
+  categoryTitle: Category List
+  categoryPanel: Categories panel
+  productTitle: Product List
+  productPanel: Products panel
+  addProduct: Add a product
+  userTitle: User List
+  userPanel: Users panel
+
+navbar:
+  allProducts: All products
+  allCategories: All categories
+  cart: Cart
+  adminPanel: Admin panel
+  logout: Logout
+  signIn: Sign In
