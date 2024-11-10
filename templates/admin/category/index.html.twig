@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 
-{% block title %}{{'adminCategoryIndex.title'|trans}}{% endblock %}
+{% block title %}{{ 'adminCategoryIndex.title'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-white">{{'adminCategoryIndex.title'|trans}}</h1>
+    <h1 class="text-white">{{ 'adminCategoryIndex.title'|trans }}</h1>
     <hr class="hr" />
     <div class="d-flex gap-3 flex-column">
         {% include "_components/adminnav.html.twig" %}
@@ -12,26 +12,35 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>{{'adminCategoryIndex.name'|trans}}</th>
+                        <th>{{ 'adminCategoryIndex.name'|trans }}</th>
                         <th>Parent</th>
                         <th>Slug</th>
-                        <th>{{'adminCategoryIndex.order'|trans}}</th>
+                        <th>{{ 'adminCategoryIndex.order'|trans }}</th>
+                        <th>{{ 'actions'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>
-                {% for category in category %}
-                    <tr>
-                        <td>{{ category.id }}</td>
-                        <td>{{ category.name }}</td>
-                        <td>
-                            {% if category.parent is not null %}
-                                {{ category.parent.name }}
-                            {% endif %}
-                        </td>
-                        <td>{{ category.slug }}</td>
-                        <td>{{ category.CategoryOrder }}</td>
-                    </tr>
-                {% endfor %}
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>
+                                {% if category.parent is not null %}
+                                    {{ category.parent.name }}
+                                {% else %}
+                                    {{ 'No parent'|trans }}
+                                {% endif %}
+                            </td>
+                            <td>{{ category.slug }}</td>
+                            <td>{{ category.categoryOrder }}</td>
+                            <td>
+                                <a class="btn btn-outline-primary" href="{{ path('admin_category_edit', {id: category.id}) }}">{{ 'update'|trans }}</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-danger" href="{{ path('admin_category_delete', {id: category.id}) }}" onclick="return confirm('{{ 'Are you sure?'|trans }}')">{{ 'delete'|trans }}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

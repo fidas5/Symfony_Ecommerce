@@ -30,11 +30,12 @@
                                 <td>{{ detail.quantity }}</td>
                                 <td>₹{{ detail.price * detail.quantity }}</td>
                                 <td>{{ order.orderTag }}</td>
-                                <td>
-                                    <a href="{{ path('admin_orders_edit', {id: order.id}) }}" class="btn btn-sm btn-primary">{{ 'Edit'|trans }}</a>
-                                    <a href="{{ path('admin_orders_delete', {id: order.id}) }}" class="btn btn-sm btn-danger" onclick="return confirm('{{ 'Are you sure?'|trans }}');">{{ 'Delete'|trans }}</a>
-                                    <a href="{{ path('admin_orders_view', {id: order.id}) }}" class="btn btn-sm btn-info">{{ 'View'|trans }}</a>
-                                </td>
+                               <td>
+                                <a class="btn btn-outline-primary" href="{{ path('admin_category_edit', {id: category.id}) }}">{{ 'update'|trans }}</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-danger" href="{{ path('admin_category_delete', {id: category.id}) }}" onclick="return confirm('{{ 'Are you sure?'|trans }}')">{{ 'delete'|trans }}</a>
+                            </td>
                             </tr>
                         {% endfor %}
                     {% endfor %}
