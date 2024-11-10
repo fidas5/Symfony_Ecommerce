@@ -7,3 +7,5 @@ composer install
 
 - After that you have to do the migrations 
 php bin/console doctrine:migrations:migrate
+
+-php bin/console d:f:l --no-interaction
