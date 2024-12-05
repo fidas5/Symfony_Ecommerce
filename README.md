@@ -1,11 +1,20 @@
-# Symfony_Ecommerce
+# Symfony E-Commerce
 
-- After cloning the repo, run :
-composer install
+## Requirements
 
-- Set Up the Data Base: DATABASE_URL="mysql://[username]:[password]@127.0.0.1:8889/[table_name]?serverVersion=8.0.32&charset=utf8mb4"
+Before you begin, ensure you have the following tools installed:
 
-- After that you have to do the migrations 
-php bin/console doctrine:migrations:migrate
+- [PHP](https://www.php.net/) (Version 8.0 or higher)
+- [Composer](https://getcomposer.org/)
+- [MySQL](https://www.mysql.com/)
+- [Symfony CLI](https://symfony.com/download)
 
--php bin/console d:f:l --no-interaction
+## Getting Started
+
+### 1. Clone the Repository
+
+Clone the project repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/symfony_ecommerce.git
+cd symfony_ecommerce
