@@ -10,18 +10,132 @@
     <hr class="hr" />
     <div class="d-flex gap-3 flex-wrap">
         {% for product in products %}
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ asset('/uploads/products/cover/300x300-' ~ product.images[0].name ) }}" alt="{{ product.name }}">
+            <div class="card" style="width: 18rem; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img class="card-img-top" src="{{ asset('/uploads/products/cover/300x300-' ~ product.images[0].name ) }}" alt="{{ product.name }}" style="object-fit: cover; height: 200px; border-radius: 15px 15px 0 0;">
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.description | slice(0, 50) }}{% if product.description | length > 50 %}...{% endif %}</p>
+                    <h5 class="card-title" style="font-size: 1.2rem; font-weight: bold; color: #007bff;">{{ product.name }}</h5>
+                    <p class="card-text" style="font-size: 1rem; color: #6c757d;">{{ product.description | slice(0, 50) }}{% if product.description | length > 50 %}...{% endif %}</p>
                     <hr class="hr" />
-                    <div class="d-flex justify-content-between">
-                        <h3>₹{{ product.price }}</h3>
-                        <a href="{{ path('products_details', {"slug": product.slug}) }}" class="btn btn-primary">{{'productsIndex.moreDetails'|trans}}</a>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 style="font-size: 1.4rem; color: #28a745; font-weight: bold;">₹{{ product.price }}</h3>
+                        <a href="{{ path('products_details', {"slug": product.slug}) }}" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 1rem; text-transform: uppercase; border-radius: 50px; transition: background-color 0.3s;">
+                            {{'productsIndex.moreDetails'|trans}}
+                        </a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+    <style>
+    /* General Page Styling */
+    body {
+        background-color: #939393; 
+        font-family: 'Roboto', sans-serif; /* Clean and modern font */
+        color: #212529; /* Readable text color */
+        padding: 0;
+        margin: 0;
+    }
+
+    .col-12 {
+        margin-bottom: 2rem;
+    }
+
+    /* Section Title */
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #f8f9fa;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #f8f9fa;
+        margin-top: 0.5rem;
+    }
+
+    /* Horizontal Rule */
+    .hr {
+        border: none;
+        border-top: 2px solid #dee2e6;
+        margin: 2rem 0;
+    }
+
+    /* Product Card Styling */
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px); /* Card lift on hover */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    }
+
+    .card-img-top {
+        object-fit: cover;
+        height: 200px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 1rem;
+    }
+
+    .d-flex {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .d-flex .btn-primary {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+    }
+
+    .d-flex .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .d-flex .btn-primary:focus {
+        outline: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .card {
+            width: 100%; /* Full-width cards on smaller screens */
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
 {% endblock %}
+
